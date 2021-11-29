@@ -10,10 +10,10 @@ from bokeh.models import ColumnDataSource, FactorRange, LabelSet
 from bokeh.plotting import figure
 from bokeh.transform import factor_cmap
 from bokeh.palettes import Spectral10
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from datetime import datetime
 # import synonyms
-import jieba
+# import jieba
 
 # from utils import *
 
