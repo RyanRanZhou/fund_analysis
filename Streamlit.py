@@ -336,13 +336,13 @@ else:
 
 
     st.markdown(
-        "<h4 style='color: White; font-size:25px;'>行业配置比较</h4>",
+        "<h4 style='font-size:25px;'>行业配置比较</h4>",
         unsafe_allow_html=True)
     seasons = ['2021-3', '2021-2', '2021-1', '2020-4', '2020-3']
     # 行业配置
 
     st.markdown(
-        "<h5 style='color: White; font-size:20px;'>NLP提取各行业倾向</h5>",
+        "<h5 style='font-size:20px;'>NLP提取各行业倾向</h5>",
         unsafe_allow_html=True)
     d = st.session_state.sentiment_df[(st.session_state.sentiment_df['基金名称'] == re.search(r'：(\w*)', fund_selectbox)[1]) & (st.session_state.sentiment_df['季度'] == seasons[seasons.index(season_selectbox) + 1])]
     d = d.iloc[:,[3,4,12]]
@@ -356,10 +356,10 @@ else:
     e['言'] = e['pval_pos'].apply(lambda x: 'Positive' if x>0.6 else 'Negative')
 
     st.markdown(
-        "<h5 style='color: White; font-size:20px;'>实际调仓行业</h5>",
+        "<h5 style='font-size:20px;'>实际调仓行业</h5>",
         unsafe_allow_html=True)
     st.markdown(
-        "<h5 style='color: White; font-size:15px;'>选取仓位变动前五且绝对变动值超过总资产1%的行业</h5>",
+        "<h5 style='font-size:15px;'>选取仓位变动前五且绝对变动值超过总资产1%的行业</h5>",
         unsafe_allow_html=True)
     st.table(c.iloc[:,[4,6,8]])
     season_list = [season_selectbox, seasons[seasons.index(season_selectbox) + 1]]
@@ -383,7 +383,7 @@ else:
     st.bokeh_chart(p, use_container_width=True)
 
     st.markdown(
-        "<h5 style='color: White; font-size:20px;'>言行比较</h5>",
+        "<h5 style='font-size:20px;'>言行比较</h5>",
         unsafe_allow_html=True)
     c = c.iloc[:,[4,6,8]]
     c['行'] = c['占净值比例变动'].apply(lambda x: 'Positive' if x>0 else 'Negative')
